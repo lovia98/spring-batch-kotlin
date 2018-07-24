@@ -1,0 +1,71 @@
+spring:
+  profiles: dev
+  application:
+    name: partner-batch
+  datasource:
+    db-orders:
+      url: jdbc:mysql://localhost:3306/orders
+      username: orders_id
+      password: orders_id_0
+      driver-class-name: com.mysql.jdbc.Driver
+      type: org.apache.tomcat.jdbc.pool.DataSource
+    db-batch:
+      url: jdbc:mysql://localhost:3306/partner_batch
+      username: partner_job
+      password: partner_job_wmp
+      driver-class-name: com.mysql.jdbc.Driver
+      type: org.apache.tomcat.jdbc.pool.DataSource
+  batch:
+    initialize-schema: always
+    job:
+      enabled: true
+
+export:
+  filePath: /data/batch-files
+
+
+---
+spring:
+  profiles: stg
+  application:
+    name: partner-batch
+  datasource:
+    url: jdbc:mysql://localhost:3306/partner_batch
+    username: partner_job
+    password: partner_job_wmp
+    driver-class-name: com.mysql.jdbc.Driver
+    type: org.apache.tomcat.jdbc.pool.DataSource
+  batch:
+    initialize-schema: never
+    job:
+      enabled: false
+
+mybatis:
+  config-location: classpath:mybatis-config.xml
+  check-config-location: true
+
+export:
+  filePath: /data/batch-files
+
+---
+spring:
+  profiles: prod
+  application:
+    name: partner-batch
+  datasource:
+    url: jdbc:mysql://localhost:3306/partner_batch
+    username: partner_job
+    password: partner_job_wmp
+    driver-class-name: com.mysql.jdbc.Driver
+    type: org.apache.tomcat.jdbc.pool.DataSource
+  batch:
+    initialize-schema: never
+    job:
+      enabled: false
+
+mybatis:
+  config-location: classpath:mybatis-config.xml
+  check-config-location: true
+
+export:
+  filePath: /data/batch-files
