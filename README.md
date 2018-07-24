@@ -3,7 +3,10 @@
 * process : mysql에서 data를 가져와 json파일 생성 -> restApi호출시 response json data
 
 * source data schema :
-       CREATE TABLE `orders`.`orders_info` (
+    
+    
+    
+    CREATE TABLE `orders`.`orders_info` (
   `order_id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `order_no` BIGINT(10) UNSIGNED NOT NULL DEFAULT '0',
   `payment_id` INT(10) UNSIGNED NOT NULL DEFAULT '0',
