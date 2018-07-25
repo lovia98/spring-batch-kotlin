@@ -12,6 +12,8 @@ class StepListener : StepExecutionListener {
     private val log = LoggerFactory.getLogger(StepListener::class.java)
 
     override fun beforeStep(stepExecution: StepExecution?) {
+        val name = stepExecution?.stepName
+        log.info("StepStart => Name: ${name}")
     }
 
     override fun afterStep(stepExecution: StepExecution?): ExitStatus {

@@ -23,7 +23,10 @@ spring:
 export:
   filePath: /data/batch-files
 
-
+logging:
+  level:
+    org.springframework: info
+    com.partner.batch.repository: debug
 ---
 spring:
   profiles: stg
@@ -46,6 +49,10 @@ mybatis:
 
 export:
   filePath: /data/batch-files
+logging:
+    level:
+      org.springframework: info
+      com.partner.batch.repository: debug
 
 ---
 spring:
@@ -69,3 +76,8 @@ mybatis:
 
 export:
   filePath: /data/batch-files
+
+logging:
+  level:
+    org.springframework: error
+    com.partner.batch.repository: debug
